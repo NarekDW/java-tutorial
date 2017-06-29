@@ -8,7 +8,7 @@ public class PagedResult<T> {
 	@JsonProperty("@odata.nextLink")
 	private String nextPageLink;
 	private T[] value;
-	
+
 	public String getNextPageLink() {
 		return nextPageLink;
 	}
@@ -21,4 +21,5 @@ public class PagedResult<T> {
 	public void setValue(T[] value) {
 		this.value = value;
 	}
+
 }

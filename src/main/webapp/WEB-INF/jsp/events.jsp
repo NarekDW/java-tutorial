@@ -8,21 +8,21 @@
 <table class="table">
 	<caption>Calendar</caption>
 	<thead>
-		<tr>
-			<th>Organizer</th>
-			<th>Subject</th>
-			<th>Start</th>
-			<th>End</th>
-		</tr>
+	<tr>
+		<th>Organizer</th>
+		<th>Subject</th>
+		<th>Start</th>
+		<th>End</th>
+	</tr>
 	</thead>
 	<tbody>
-		<c:forEach items="${events}" var="event">
-			<tr>
-				<td><c:out value="${event.organizer.emailAddress.name}" /></td>
-				<td><c:out value="${event.subject}" /></td>
-				<td><c:out value="${event.start.dateTime}" /></td>
-				<td><c:out value="${event.end.dateTime}" /></td>
-			</tr>
-		</c:forEach>
+	<c:forEach items="${events}" var="event">
+		<tr>
+			<td><c:out value="${event.organizer.emailAddress.name}" /></td>
+			<td><c:out value="${event.subject}" /></td>
+			<td><c:out value="${event.start.dateTime}" /></td>
+			<td><c:out value="${event.end.dateTime}" /></td>
+		</tr>
+	</c:forEach>
 	</tbody>
 </table>

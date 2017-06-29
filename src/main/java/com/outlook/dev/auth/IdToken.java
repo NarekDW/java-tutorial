@@ -1,12 +1,17 @@
 package com.outlook.dev.auth;
 
-import java.util.Base64;
-import java.util.Date;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.Getter;
+import lombok.Setter;
 
+import java.util.Base64;
+import java.util.Date;
+
+
+@Setter
+@Getter
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class IdToken {
 	// NOTE: This is just a subset of the claims returned in the
@@ -48,70 +53,6 @@ public class IdToken {
 		return newToken;
 	}
 
-	public long getExpirationTime() {
-		return expirationTime;
-	}
-
-	public void setExpirationTime(long expirationTime) {
-		this.expirationTime = expirationTime;
-	}
-
-	public long getNotBefore() {
-		return notBefore;
-	}
-
-	public void setNotBefore(long notBefore) {
-		this.notBefore = notBefore;
-	}
-
-	public String getTenantId() {
-		return tenantId;
-	}
-
-	public void setTenantId(String tenantId) {
-		this.tenantId = tenantId;
-	}
-
-	public String getNonce() {
-		return nonce;
-	}
-
-	public void setNonce(String nonce) {
-		this.nonce = nonce;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getPreferredUsername() {
-		return preferredUsername;
-	}
-
-	public void setPreferredUsername(String preferredUsername) {
-		this.preferredUsername = preferredUsername;
-	}
-
-	public String getObjectId() {
-		return objectId;
-	}
-
-	public void setObjectId(String objectId) {
-		this.objectId = objectId;
-	}
-	
 	private Date getUnixEpochAsDate(long epoch) {
 		// Epoch timestamps are in seconds,
 		// but Jackson converts integers as milliseconds.
@@ -134,11 +75,7 @@ public class IdToken {
 		}
 		
 		// Check nonce
-		if (!nonce.equals(this.getNonce())) {
-			// Nonce mismatch
-			return false;
-		}
-		
-		return true;
+		return nonce.equals(this.getNonce());
 	}
+
 }

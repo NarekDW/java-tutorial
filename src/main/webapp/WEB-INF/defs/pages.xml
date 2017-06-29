@@ -22,6 +22,12 @@
     <put-attribute name="body" value="/WEB-INF/jsp/events.jsp" />
     <put-attribute name="current" value="events" />
   </definition>
+
+  <definition name="create" extends="common">
+    <put-attribute name="title" value="My Create" />
+    <put-attribute name="body" value="/WEB-INF/jsp/index.jsp" />
+    <put-attribute name="current" value="create" />
+  </definition>
   
   <definition name="contacts" extends="common">
     <put-attribute name="title" value="My Contacts" />
